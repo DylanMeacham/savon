@@ -53,6 +53,7 @@ module Savon
       configure_timeouts
       configure_ssl
       configure_auth
+      configure_redirect_handling
 
       @http_request
     end
