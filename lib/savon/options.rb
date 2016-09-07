@@ -53,8 +53,8 @@ module Savon
         :pretty_print_xml          => false,
         :raise_errors              => true,
         :strip_namespaces          => true,
-        :convert_response_tags_to  => lambda { |tag| tag.snakecase.to_sym }
-        :follow_redirects            => false,
+        :convert_response_tags_to  => lambda { |tag| tag.snakecase.to_sym },
+        :follow_redirects          => false,
       }
 
       options = defaults.merge(options)
