@@ -39,6 +39,11 @@ module Savon
       @http_request.auth.digest(*@globals[:digest_auth]) if @globals.include? :digest_auth
     end
 
+    def configure_redirect_handling
+      if @globals.include? :follow_redirects
+        @http_request.follow_redirect = @globals[:follow_redirects]
+      end
+    end
   end
 
   class WSDLRequest < HTTPRequest
