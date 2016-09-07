@@ -54,6 +54,7 @@ module Savon
         :raise_errors              => true,
         :strip_namespaces          => true,
         :convert_response_tags_to  => lambda { |tag| tag.snakecase.to_sym }
+        :follow_redirects            => false,
       }
 
       options = defaults.merge(options)
@@ -245,6 +246,10 @@ module Savon
     # Defaults to convert tags to snakecase Symbols.
     def convert_response_tags_to(converter = nil, &block)
       @options[:convert_response_tags_to] = block || converter
+    end
+
+    def follow_redirects(follow_redirects)
+      @options[:follow_redirects] = follow_redirects
     end
   end
 
